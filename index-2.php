@@ -1,5 +1,5 @@
 <?php
-echo "Задание 1 <br>";
+echo "<h2> Задание 1 </h2>";
 echo "Заданы числа: <br>";
 $a = 5;
 $b = -3;
@@ -16,7 +16,7 @@ if (($a >= 0) && ($b >= 0)) {
     echo "Сумма положительного и отрицательного чисел равна: {$s}";
 }
 //--------------------------------------------------------------------
-echo "<p> Задание 3 и 4 <p>";
+echo "<h2> Задание 3 и 4 </h2>";
 function mySumm($argument1, $argument2)
 {
     return $argument1 + $argument2;
@@ -70,14 +70,14 @@ if ($taskResult != null) {
 }
 
 //-------------------------------------------------------------------
-echo "Задание 5 <br>";
+echo "<h2> Задание 5 </h2>";
 $currentYear = new DateTime(); //встроенные функции PHP
 
 //Преобразуем текущую дату к строковому значению ГОД
 echo "Copyright MAW " . $currentYear->format('Y') . "<br>";
 
 //-------------------------------------------------------------------
-echo "Задание 6 <br>"; //рекурсивная функция возведения числа в степень
+echo "<h2> Задание 6 </h2>"; //рекурсивная функция возведения числа в степень
 
 function power($val, $pow)
 {
@@ -101,3 +101,29 @@ $powResult = power($userNumber, $userDegree);
 echo "Число ${userNumber} возведенное в степень ${userDegree} равно ${powResult} <br>";
 
 //--------------------------------------------------------------------
+echo "<h2> Задание 7 </h2>";
+
+function declension($number, $wordForm1, $wordForm2, $wordForm3)
+{
+    $num10 = $number % 10;   //остаток от деления на 10
+    $num100 = $number % 100;
+
+    if ($num100 > 10 && $num100 < 20) return $wordForm3;
+    if ($num10 == 1) return $wordForm1;
+    if ($num10 > 1 && $num10 < 5) return $wordForm2;
+    return $wordForm3;
+}
+
+function whatTimeIsIt()
+{
+    $hours = date("G");    //часы 24-формат без ведущих нулей
+    $minutes = date("i");  // минуты
+    //$hours = 21;    //тестовые значения
+    //$minutes = 36;  //тестовые значения
+    $declHours = declension($hours, "час", "часа", "часов");
+    $declMinutes = declension($minutes, "минута", "минуты", "минут");
+    return "{$hours} {$declHours} {$minutes} {$declMinutes}";
+}
+
+$currentTime = whatTimeIsIt();
+echo "<p>Сейчас {$currentTime}</p> ";
