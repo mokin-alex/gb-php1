@@ -1,0 +1,9 @@
+
+.gallery {
+    display: flex;
+    justify-content: space-between;
+}
+
+.gallery_txt {
+    text-align: center;
+ }
