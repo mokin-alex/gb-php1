@@ -1,0 +1,23 @@
+. {
+    margin: 0;
+    padding: 0;
+}
+
+.gallery {
+    display: flex;
+    justify-content: space-between;
+}
+
+.gallery_txt {
+    text-align: center;
+}
+
+.product {
+    display: flex;
+    margin: 40px;
+}
+
+.product_block {
+    width: 400px;
+    margin-right: 40px;
+}
