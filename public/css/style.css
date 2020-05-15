@@ -6,6 +6,7 @@
 .gallery {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .gallery_txt {

@@ -6,10 +6,12 @@ function redirect(string $url): void
     exit;
 }
 
-function get($name) {
-    return $_GET[$name];
+function get($name)
+{
+    return htmlspecialchars(strip_tags($_GET[$name]));
 }
 
-function post($name) {
-        return $_POST[$name];
+function post($name)
+{
+    return htmlspecialchars(strip_tags($_POST[$name]));
 }

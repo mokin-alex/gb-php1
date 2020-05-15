@@ -13,7 +13,7 @@
 <div class="product">
     <div class="product_block">
         <?php
-        include VIEWS_DIR . "view_theOnePhoto.php"
+        echo '<img width="400" src="data:' . $photo['imageType'] . ';base64,' . base64_encode($photo['imageData']) . '"/>';
         ?>
         <p> <?= $photo['author'] ?></p>
         <p> <?= $photo['description'] ?></p>
@@ -29,7 +29,7 @@
             <h3>Комментарии:</h3>
             <?php foreach ($listComments as $item): ?>
                 <div class="comments_block">
-                   <p>  <?= $item['text'] ?> </p>
+                    <p>  <?= $item['text'] ?> </p>
                 </div>
             <?php endforeach; ?>
         </div>

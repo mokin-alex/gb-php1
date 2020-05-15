@@ -13,9 +13,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         } elseif ($_FILES['my_file']['size'] > MAX_IMAGE_SIZE) {
             $resultMsg = "Ошибка. Слишком большой файл для загрузки";
         } else {
+
             $photo = $_FILES['my_file']['name'];
-            $author = htmlspecialchars(strip_tags(post('author')));
-            $description = htmlspecialchars(strip_tags(post('description')));
+            //данные из формы:
+            $author = post('author');
+            $description = post('description');
+            //получаем данные файла для записи его в БД:
             $imageData = addslashes(file_get_contents($_FILES['my_file']['tmp_name']));
             $imageProperties = getimageSize($_FILES['my_file']['tmp_name']);
 
@@ -35,8 +38,8 @@ $listPhotos = getGallery(); //получим список фото из базы
 closeConnection();
 
 include VIEWS_DIR . "view_head.php";
-include VIEWS_DIR . "upload_form.php";
 include VIEWS_DIR . "view_gallery.php";
+include VIEWS_DIR . "upload_form.php";
 
 
 

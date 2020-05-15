@@ -12,6 +12,12 @@ function addPhoto(string $photo, string $imageType, $imageData, string $author, 
     return execute($sql);
 }
 
+function delPhoto (int $id)
+{
+    $sql = "DELETE FROM gallery WHERE id = {$id}";
+    return execute($sql);
+}
+
 function getGallery(): array
 {
     $sql = "SELECT * FROM gallery ORDER BY viewers DESC;";

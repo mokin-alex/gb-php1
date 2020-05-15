@@ -1,4 +1,4 @@
-<h2>Загрузка репродукции</h2>
+<h2>Загрузка</h2>
 <form action="" enctype="multipart/form-data" method="post">
     <input type="file" name = 'my_file'>
     <p>Укажите автора и год фотографии</p>

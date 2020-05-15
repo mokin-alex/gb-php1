@@ -3,12 +3,12 @@ require_once __DIR__ . '\..\config\main.php';
 require_once ENGINE_DIR . 'crudBase.php';
 require_once ENGINE_DIR . 'base.php';
 
-$id = htmlspecialchars(strip_tags(get('id')));
+$id = get('id');
 incPhotoViewers($id);
 $photo = getOriginalPhoto($id);
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    addComment($id, htmlspecialchars(strip_tags(post('comment'))));
+    addComment($id, post('comment'));
 }
 
 $listComments = getComments($id);
