@@ -1,8 +1,6 @@
 <?php
 require_once __DIR__ . '\..\config\main.php';
-require_once ENGINE_DIR . 'cart.php';
-require_once ENGINE_DIR . 'base.php';
-require_once ENGINE_DIR . 'crudBase.php';
+require_once ENGINE_DIR . "autoload.php";
 
 session_start();
 if (isset($_SESSION['user_name'])) {
@@ -38,4 +36,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     redirect('/cart.php');
 }
 
-include VIEWS_DIR . "view_cart.php";
+//include VIEWS_DIR . "view_cart.php";
+echo render('view_cart', ['cart' => $cart]);

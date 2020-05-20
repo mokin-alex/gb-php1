@@ -1,7 +1,6 @@
 <?php
 require_once __DIR__ . '\..\config\main.php';
-require_once ENGINE_DIR . 'crudBase.php';
-require_once ENGINE_DIR . 'base.php';
+require_once ENGINE_DIR . "autoload.php";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
@@ -28,8 +27,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 $imageData,
                 $author,
                 $description);
-
-            //$resultMsg = "Успешно загружено!";
         }
     }
     redirect('/index.php');
@@ -37,9 +34,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 $listPhotos = getGallery(); //получим список фото из базы в том числе и непосредственно фото из базы
 closeConnection();
 
-include VIEWS_DIR . "view_head.php";
-include VIEWS_DIR . "view_gallery.php";
-include VIEWS_DIR . "upload_form.php";
-
+//include VIEWS_DIR . "view_head.php";
+//include VIEWS_DIR . "view_gallery.php";
+//include VIEWS_DIR . "upload_form.php";
+echo render("view_gallery", ['listPhotos' => $listPhotos]);
 
 

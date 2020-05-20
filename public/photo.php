@@ -1,8 +1,6 @@
 <?php
 require_once __DIR__ . '\..\config\main.php';
-require_once ENGINE_DIR . 'crudBase.php';
-require_once ENGINE_DIR . 'base.php';
-require_once ENGINE_DIR . 'cart.php';
+require_once ENGINE_DIR . "autoload.php";
 
 $id = get('id');
 incPhotoViewers($id);
@@ -20,6 +18,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 $listComments = getComments($id);
 closeConnection();
-include VIEWS_DIR . "view_product.php";
-
+//include VIEWS_DIR . "view_product.php";
+echo render('view_product', ['photo' =>$photo, 'listComments' => $listComments]);
 

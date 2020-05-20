@@ -1,8 +1,6 @@
 <?php
 require_once __DIR__ . '\..\config\main.php';
-require_once ENGINE_DIR . "base.php";
-require_once ENGINE_DIR . "db.php";
-require_once ENGINE_DIR . "users.php";
+require_once ENGINE_DIR . "autoload.php";
 
 session_start();
 if (!isset($_SESSION['user_id'])) {
@@ -25,4 +23,5 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
     redirect('/login.php');
 }
 
-include VIEWS_DIR . "view_login.php";
+//include VIEWS_DIR . "view_login.php";
+echo render('view_login', ['login_msg' => $login_msg]);
